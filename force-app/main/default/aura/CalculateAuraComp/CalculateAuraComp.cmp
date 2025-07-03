@@ -1,0 +1,35 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+    <aura:attribute name="InputOne" type="Integer"  />
+    <aura:attribute name="InputTwo" type="Integer" />
+    <aura:attribute name="InputThree" type="Integer" />
+    <lightning:card variant="Narrow" title="Narrow Card Header" iconName="standard:account" footer="">
+        <aura:set attribute="actions">
+            <lightning:buttonIcon iconName="utility:down" variant="border-filled" alternativeText="Show More"/>
+        </aura:set>
+        <div align="Center" >
+            <lightning:formattedRichText value="&lt;b&gt;!- Calculater -!&lt;/b&gt;"/>
+        </div>
+        <div class="slds-p-horizontal_xx-large">
+            <!--Input Fields -->
+            <lightning:layout verticalAlign="center" class="x-large">
+                <lightning:layoutItem flexibility="auto" padding="around-small">
+                    <lightning:input type="number" name="input1" value="{!v.InputOne}" required="true" placeholder="Enter A Number..." label="Input One" />
+                    <lightning:input type="number" name="input2" value="{!v.InputTwo}" required="true" placeholder="Enter A Number..." label="Input Second" />
+                    <lightning:input type="number" name="input3" value="{!v.InputThree}" disabled="true" placeholder="Hello! Result here..." label="Result" />
+                </lightning:layoutItem>
+            </lightning:layout>
+            
+        </div>
+        <!--Expression Button -->
+        <div class="slds-grid slds-gutters slds-p-left_xx-large  ">
+            <div class="slds-p-horizontal_x-large">
+                <lightning:button variant="brand" label="Add +"  onclick="{!c.Addition}" />
+                <lightning:button variant="brand" label="Minus -"  onclick="{!c.Minus}" />
+                <lightning:button variant="brand" label="Multiply *"  onclick="{!c.Multiply}" />
+                <lightning:button variant="brand" label="Divied /"  onclick="{!c.Divide}" />
+                
+                <!--Result Fields -->
+            </div>
+        </div>
+    </lightning:card>
+</aura:component>
